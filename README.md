@@ -66,5 +66,5 @@ about how I write that kind of code.
 
 Working through machine learning from classical computer vision upward, and
 [writing down what I learn](https://abirdeol.tech/research) rather than collecting
-tutorials. Two time national MMA champion, 2020 to 2024. Looking for software
+tutorials. Two-time national MMA champion, 2020 to 2024. Looking for software
 engineering internships.
