@@ -17,11 +17,11 @@
 ![Python](https://img.shields.io/badge/Python-0b1220?style=flat-square&logo=python&logoColor=e8c25e)
 ![TypeScript](https://img.shields.io/badge/TypeScript-0b1220?style=flat-square&logo=typescript&logoColor=e8c25e)
 ![Go](https://img.shields.io/badge/Go-0b1220?style=flat-square&logo=go&logoColor=e8c25e)
-![Linux](https://img.shields.io/badge/Arch%20Linux-0b1220?style=flat-square&logo=archlinux&logoColor=e8c25e)
+![Arch](https://img.shields.io/badge/Arch%20Linux-0b1220?style=flat-square&logo=archlinux&logoColor=e8c25e)
+
+<img src="./assets/divider.svg" width="100%" alt="">
 
 </div>
-
----
 
 Second year computing science at the University of Alberta. I write low level systems
 from scratch to find out what is underneath the abstraction: an allocator instead of
@@ -32,13 +32,9 @@ None of it is better than the real thing. That was never the point. The point is
 afterwards the real thing stops being magic, so when it behaves strangely you have
 somewhere to start.
 
----
+<div align="center"><img src="./assets/divider.svg" width="100%" alt=""></div>
 
-## ☉ &nbsp; the oracle
-
-> *At Delphi the god did not appear in person. He spoke, and something had to be built to carry the voice.*
-
-### [oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)
+## oracle-of-delphi
 
 A fully local autonomous voice assistant. Sub-600ms bidirectional speech with barge-in,
 OS level machine control, dual layer persistent memory over a knowledge graph, and a
@@ -64,31 +60,11 @@ itself, gates irreversible actions behind confirmation, and audits everything.
 ![cpp](https://img.shields.io/badge/933%20C%2B%2B%20checks-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![clippy](https://img.shields.io/badge/clippy-clean-1f6f43?style=flat-square&labelColor=0b1220)
 
----
+**[github.com/apollo-2006/oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)**
 
-## ☀ &nbsp; light
+<div align="center"><img src="./assets/divider.svg" width="100%" alt=""></div>
 
-> *Phoebus, the bright one. Everything here is about getting photons onto a screen without asking a library for help.*
-
-| | |
-|---|---|
-| **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** | full 3D pipeline in plain JavaScript, no graphics API. barycentric fill, `1/w` z-buffer. **[runs in your browser](https://apollo-2006.github.io/cpu_rasterizer/)** |
-| **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** | raytracer with no libraries: vector math, ray generation, camera, PPM output |
-| **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** | software rasterizer, perspective matrices and triangle fill written out longhand |
-
-## ➶ &nbsp; the unerring arrow
-
-> *The archer god never missed. These are the projects where close enough was not the goal.*
-
-| | |
-|---|---|
-| **[nano_match](https://github.com/apollo-2006/nano_match)** | limit order book with price time priority and no heap allocation on the matching path |
-| **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** | thread safe allocator over one `mmap` region, intrusive free list, block recycling |
-| **[neon_vm](https://github.com/apollo-2006/neon_vm)** | stack based virtual machine, bytecode chunking, its own dispatch loop |
-
-## ⚵ &nbsp; harmony
-
-> *Apollo's lyre kept the Muses in agreement. Consensus is the same problem with worse failure modes.*
+### distributed systems and storage
 
 | | |
 |---|---|
@@ -96,32 +72,42 @@ itself, gates irreversible actions behind confirmation, and audits everything.
 | **[nexus_cluster](https://github.com/apollo-2006/nexus_cluster)** | Raft from scratch: leader election, log replication, term management, custom TCP transport |
 | **[nexus_editor](https://github.com/apollo-2006/nexus_editor)** | real time collaborative editor, fractional indexing CRDT, goroutine per client |
 
-## ⚕ &nbsp; healing
+### close to the metal
 
-> *Before medicine belonged to Asclepius it belonged to Apollo. Diagnosis first, then the cure.*
+| | |
+|---|---|
+| **[nano_match](https://github.com/apollo-2006/nano_match)** | limit order book with price time priority and no heap allocation on the matching path |
+| **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** | thread safe allocator over one `mmap` region, intrusive free list, block recycling |
+| **[neon_vm](https://github.com/apollo-2006/neon_vm)** | stack based virtual machine, bytecode chunking, its own dispatch loop |
+
+### graphics
+
+| | |
+|---|---|
+| **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** | full 3D pipeline in plain JavaScript, no graphics API. barycentric fill, `1/w` z-buffer. **[runs in your browser](https://apollo-2006.github.io/cpu_rasterizer/)** |
+| **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** | raytracer with no libraries: vector math, ray generation, camera, PPM output |
+| **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** | software rasterizer, perspective matrices and triangle fill written out longhand |
+
+### tools I actually use
 
 | | |
 |---|---|
 | **[thermal_monitor](https://github.com/apollo-2006/thermal_monitor)** | daemon tracking CPU load, thermal curves and VRAM clocks into a local database |
 | **[terminal_dashboard](https://github.com/apollo-2006/terminal_dashboard)** | system monitor with per core CPU, memory, network and GPU telemetry |
+| **[cal-cli](https://github.com/apollo-2006/cal-cli)** | macro tracking from the command line, because logging a meal should be one command |
+| **[points-sys](https://github.com/apollo-2006/points-sys)** | two player points economy, one HTML file, no build step, live synced |
 
-## ⌖ &nbsp; the hunt
-
-> *Not everything needs a myth behind it. Some of these exist because I wanted them to.*
+### games and other things
 
 | | |
 |---|---|
 | **[valo_scout](https://github.com/apollo-2006/valo_scout)** | valorant stat tracker |
 | **[radiant_slice](https://github.com/apollo-2006/radiant_slice)** | barebones valorant style fps shooter |
-| **[cal-cli](https://github.com/apollo-2006/cal-cli)** | macro tracking from the command line, because logging a meal should be one command |
-| **[points-sys](https://github.com/apollo-2006/points-sys)** | two player points economy, one HTML file, no build step, live synced |
 | **[personal_portfolio](https://github.com/apollo-2006/personal_portfolio)** | [abirdeol.tech](https://abirdeol.tech), built from scratch |
 
----
+<div align="center"><img src="./assets/divider.svg" width="100%" alt=""></div>
 
-## ⚱ &nbsp; hubris
-
-> *The Greeks had a word for being sure you had it right. In the stories it tends to arrive just before the interesting part.*
+### things I got wrong
 
 Four of the projects above had a bug that cost me real hours. I wrote each one up
 afterwards: the symptom, how I chased it, what was actually wrong, and what I changed
@@ -132,18 +118,7 @@ about how I write that kind of code.
 - **[The order that was in two places](https://abirdeol.tech/research/order-pool)** &nbsp; a use after free that never crashed
 - **[A cluster that could not keep a leader](https://abirdeol.tech/research/election-timeouts)** &nbsp; when the runtime pauses longer than your failure detector waits
 
----
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=apollo-2006&show_icons=true&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&icon_color=d09a2e&include_all_commits=true&count_private=true" height="165" alt="stats">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=apollo-2006&layout=compact&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&langs_count=8" height="165" alt="languages">
-
-<br><br>
-
-## ⧗ &nbsp; currently
-
-</div>
+### currently
 
 Working through machine learning from classical computer vision upward, and
 [writing down what I learn](https://abirdeol.tech/research) rather than collecting
@@ -151,6 +126,10 @@ tutorials. Two time national MMA champion, 2020 to 2024. Looking for software
 engineering internships.
 
 <div align="center">
-<br>
-<sub><i>ἓν οἶδα ὅτι οὐδὲν οἶδα</i></sub>
+
+<img src="./assets/divider.svg" width="100%" alt="">
+
+<img src="https://github-readme-stats.vercel.app/api?username=apollo-2006&show_icons=true&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&icon_color=d09a2e&include_all_commits=true&count_private=true" height="165" alt="stats">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=apollo-2006&layout=compact&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&langs_count=8" height="165" alt="languages">
+
 </div>
