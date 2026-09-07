@@ -10,14 +10,29 @@
       <stop offset="60%"  stop-color="#e0a93a" stop-opacity="0.18"/>
       <stop offset="100%" stop-color="#e0a93a" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#ffe9b0"/>
-      <stop offset="100%" stop-color="#d09a2e"/>
-    </linearGradient>
     <pattern id="meander" x="0" y="0" width="40" height="16" patternUnits="userSpaceOnUse">
       <path d="M2 14 V4 H14 V11 H8 V7 H26 V14 M26 4 H38 V14"
             fill="none" stroke="#d09a2e" stroke-width="1.6" opacity="0.55"/>
     </pattern>
+    <!-- one laurel branch, reused mirrored -->
+    <g id="laurel">
+      <path d="M0 0 C 52 -12, 96 -62, 110 -142" fill="none" stroke="#e8c25e" stroke-width="2.2" opacity="0.8"/>
+      <g fill="#e8c25e" opacity="0.68">
+        <ellipse cx="20"  cy="-7"   rx="13" ry="5.2" transform="rotate(-12 20 -7)"/>
+        <ellipse cx="35"  cy="-21"  rx="14" ry="5.4" transform="rotate(-28 35 -21)"/>
+        <ellipse cx="50"  cy="-42"  rx="14" ry="5.4" transform="rotate(-45 50 -42)"/>
+        <ellipse cx="66"  cy="-68"  rx="13" ry="5.2" transform="rotate(-56 66 -68)"/>
+        <ellipse cx="82"  cy="-97"  rx="12" ry="4.8" transform="rotate(-64 82 -97)"/>
+        <ellipse cx="96"  cy="-124" rx="10" ry="4.2" transform="rotate(-71 96 -124)"/>
+      </g>
+      <g fill="#e8c25e" opacity="0.4">
+        <ellipse cx="33" cy="2"    rx="11" ry="4.4" transform="rotate(20 33 2)"/>
+        <ellipse cx="49" cy="-13"  rx="12" ry="4.6" transform="rotate(2 49 -13)"/>
+        <ellipse cx="63" cy="-34"  rx="12" ry="4.6" transform="rotate(-16 63 -34)"/>
+        <ellipse cx="78" cy="-60"  rx="11" ry="4.4" transform="rotate(-32 78 -60)"/>
+        <ellipse cx="92" cy="-89"  rx="10" ry="4"   transform="rotate(-46 92 -89)"/>
+      </g>
+    </g>
   </defs>
 
   <rect width="1000" height="300" fill="url(#sky)"/>
@@ -29,6 +44,13 @@
     <circle cx="930" cy="140" r="1.1"><animate attributeName="opacity" values="0.6;0.15;0.6"  dur="4.8s" repeatCount="indefinite"/></circle>
     <circle cx="72"  cy="165" r="1.2"><animate attributeName="opacity" values="0.1;0.75;0.1"  dur="7s"   repeatCount="indefinite"/></circle>
     <circle cx="760" cy="185" r="1"  ><animate attributeName="opacity" values="0.5;0.1;0.5"   dur="6s"   repeatCount="indefinite"/></circle>
+    <circle cx="190" cy="205" r="1.1"><animate attributeName="opacity" values="0.15;0.7;0.15" dur="5.2s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- laurel wreath framing the sun -->
+  <g transform="translate(500 244)" opacity="0.95">
+    <use href="#laurel" transform="translate(-26 0) scale(-1 1)"/>
+    <use href="#laurel" transform="translate(26 0)"/>
   </g>
 
   <g transform="translate(500 122)">
@@ -36,7 +58,6 @@
       <animate attributeName="r" values="110;128;110" dur="6s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- rotating rays, drawn crisp and long so they actually read -->
     <g stroke="#e8c25e" stroke-linecap="round">
       <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="80s" repeatCount="indefinite"/>
       <g stroke-width="3">
@@ -58,9 +79,8 @@
       <circle r="70" stroke-dasharray="4 10"/>
     </g>
 
-    <circle r="52" fill="#0b1220" stroke="url(#gold)" stroke-width="2.5"/>
+    <circle r="52" fill="#0b1220" stroke="#e8c25e" stroke-width="2.5"/>
 
-    <!-- lyre: two curved arms, yoke across the top, strings, soundbox -->
     <g stroke="#e8c25e" fill="none" stroke-linecap="round">
       <path d="M-26 22 C -38 0, -30 -22, -18 -30" stroke-width="3"/>
       <path d="M26 22 C 38 0, 30 -22, 18 -30" stroke-width="3"/>

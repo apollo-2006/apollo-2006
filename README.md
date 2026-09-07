@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner.svg" alt="Abir Deol" width="100%">
+<img src="./assets/banner-v2.svg" alt="Abir Deol" width="100%">
 
 <br>
 
@@ -19,7 +19,7 @@
 ![Go](https://img.shields.io/badge/Go-0b1220?style=flat-square&logo=go&logoColor=e8c25e)
 ![Arch](https://img.shields.io/badge/Arch%20Linux-0b1220?style=flat-square&logo=archlinux&logoColor=e8c25e)
 
-<img src="./assets/divider.svg" width="100%" alt="">
+<img src="./assets/divider-v2.svg" width="100%" alt="">
 
 </div>
 
@@ -32,7 +32,7 @@ None of it is better than the real thing. That was never the point. The point is
 afterwards the real thing stops being magic, so when it behaves strangely you have
 somewhere to start.
 
-<div align="center"><img src="./assets/divider.svg" width="100%" alt=""></div>
+<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
 ## oracle-of-delphi
 
@@ -62,7 +62,7 @@ itself, gates irreversible actions behind confirmation, and audits everything.
 
 **[github.com/apollo-2006/oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)**
 
-<div align="center"><img src="./assets/divider.svg" width="100%" alt=""></div>
+<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
 ### distributed systems and storage
 
@@ -105,7 +105,7 @@ itself, gates irreversible actions behind confirmation, and audits everything.
 | **[radiant_slice](https://github.com/apollo-2006/radiant_slice)** | barebones valorant style fps shooter |
 | **[personal_portfolio](https://github.com/apollo-2006/personal_portfolio)** | [abirdeol.tech](https://abirdeol.tech), built from scratch |
 
-<div align="center"><img src="./assets/divider.svg" width="100%" alt=""></div>
+<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
 ### things I got wrong
 
@@ -127,7 +127,7 @@ engineering internships.
 
 <div align="center">
 
-<img src="./assets/divider.svg" width="100%" alt="">
+<img src="./assets/divider-v2.svg" width="100%" alt="">
 
 <img src="https://github-readme-stats.vercel.app/api?username=apollo-2006&show_icons=true&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&icon_color=d09a2e&include_all_commits=true&count_private=true" height="165" alt="stats">
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=apollo-2006&layout=compact&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&langs_count=8" height="165" alt="languages">
