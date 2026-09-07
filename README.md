@@ -1,16 +1,27 @@
-```
-  ●  research      learning ml, writing it down
-  │╲
-  │ ●  passions    lifting · mma · gaming · reading
-  │  ╲
-  │   ●  projects  16 systems, built raw
-  │  ╱
-  │ ●  work        u of a · grad 2028
-  │╱
-  ●  connect       say hello
-```
+<div align="center">
 
-# abir deol
+<img src="./assets/banner.svg" alt="Abir Deol" width="100%">
+
+<br>
+
+[![website](https://img.shields.io/badge/abirdeol.tech-0b1220?style=for-the-badge&logo=astro&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech)
+[![resume](https://img.shields.io/badge/resume-0b1220?style=for-the-badge&logo=readdotcv&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/abir-deol-resume.pdf)
+[![linkedin](https://img.shields.io/badge/linkedin-0b1220?style=for-the-badge&logo=linkedin&logoColor=e8c25e&labelColor=0b1220)](https://linkedin.com/in/abirdeol)
+[![demo](https://img.shields.io/badge/live%20demo-0b1220?style=for-the-badge&logo=webgl&logoColor=e8c25e&labelColor=0b1220)](https://apollo-2006.github.io/cpu_rasterizer/)
+
+<br>
+
+![Rust](https://img.shields.io/badge/Rust-0b1220?style=flat-square&logo=rust&logoColor=e8c25e)
+![C++](https://img.shields.io/badge/C++-0b1220?style=flat-square&logo=cplusplus&logoColor=e8c25e)
+![C](https://img.shields.io/badge/C-0b1220?style=flat-square&logo=c&logoColor=e8c25e)
+![Python](https://img.shields.io/badge/Python-0b1220?style=flat-square&logo=python&logoColor=e8c25e)
+![TypeScript](https://img.shields.io/badge/TypeScript-0b1220?style=flat-square&logo=typescript&logoColor=e8c25e)
+![Go](https://img.shields.io/badge/Go-0b1220?style=flat-square&logo=go&logoColor=e8c25e)
+![Linux](https://img.shields.io/badge/Arch%20Linux-0b1220?style=flat-square&logo=archlinux&logoColor=e8c25e)
+
+</div>
+
+---
 
 Second year computing science at the University of Alberta. I write low level systems
 from scratch to find out what is underneath the abstraction: an allocator instead of
@@ -21,37 +32,96 @@ None of it is better than the real thing. That was never the point. The point is
 afterwards the real thing stops being magic, so when it behaves strangely you have
 somewhere to start.
 
-**[abirdeol.tech](https://abirdeol.tech)** &nbsp;·&nbsp; [resume](https://abirdeol.tech/abir-deol-resume.pdf) &nbsp;·&nbsp; [live demo](https://apollo-2006.github.io/cpu_rasterizer/) &nbsp;·&nbsp; [linkedin](https://linkedin.com/in/abirdeol)
+---
+
+## ☉ &nbsp; the oracle
+
+> *At Delphi the god did not appear in person. He spoke, and something had to be built to carry the voice.*
+
+### [oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)
+
+A fully local autonomous voice assistant. Sub-600ms bidirectional speech with barge-in,
+OS level machine control, dual layer persistent memory over a knowledge graph, and a
+WebGL holographic HUD. It boots offline with no GPU, no model download and no
+credentials, then swaps in real backends behind traits.
+
+```
+oracle-audio (C++/RT)  ──shm+socket──▶  oracle-core (Rust/Tokio)  ──WS──▶  oracle-hud
+   capture · VAD ·                          agent loop · memory ·
+   barge-in · TTS                           connectors · gateway
+                                                  │
+                                          authed UDS (SO_PEERCRED)
+                                                  ▼
+                                        oracle-actd (Rust, privileged)
+                                        policy · input · shell · audit
+```
+
+The design premise is that the model is an untrusted planner. Actuation lives in a
+separate privileged daemon that recomputes the required capability from the operation
+itself, gates irreversible actions behind confirmation, and audits everything.
+
+![tests](https://img.shields.io/badge/409%20Rust%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
+![cpp](https://img.shields.io/badge/933%20C%2B%2B%20checks-passing-1f6f43?style=flat-square&labelColor=0b1220)
+![clippy](https://img.shields.io/badge/clippy-clean-1f6f43?style=flat-square&labelColor=0b1220)
 
 ---
 
-### distributed systems and storage
+## ☀ &nbsp; light
 
-- **[nexus_db](https://github.com/apollo-2006/nexus_db)** &nbsp; embedded LSM key-value store: skip list memtable, write ahead log, immutable SSTables, tombstone compaction &nbsp;`C++17` `FastAPI` `React`
-- **[nexus_cluster](https://github.com/apollo-2006/nexus_cluster)** &nbsp; Raft from scratch: leader election, log replication, term management, custom TCP transport &nbsp;`Python`
-- **[nexus_editor](https://github.com/apollo-2006/nexus_editor)** &nbsp; real time collaborative editor, fractional indexing CRDT, goroutine per client &nbsp;`Go` `React` `TS`
+> *Phoebus, the bright one. Everything here is about getting photons onto a screen without asking a library for help.*
 
-### close to the metal
+| | |
+|---|---|
+| **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** | full 3D pipeline in plain JavaScript, no graphics API. barycentric fill, `1/w` z-buffer. **[runs in your browser](https://apollo-2006.github.io/cpu_rasterizer/)** |
+| **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** | raytracer with no libraries: vector math, ray generation, camera, PPM output |
+| **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** | software rasterizer, perspective matrices and triangle fill written out longhand |
 
-- **[nano_match](https://github.com/apollo-2006/nano_match)** &nbsp; limit order book with price time priority and no heap allocation on the matching path &nbsp;`C++`
-- **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** &nbsp; thread safe allocator over one `mmap` region, intrusive free list, block recycling &nbsp;`C` `pthreads`
-- **[neon_vm](https://github.com/apollo-2006/neon_vm)** &nbsp; stack based virtual machine, bytecode chunking, its own dispatch loop &nbsp;`C`
+## ➶ &nbsp; the unerring arrow
 
-### graphics
+> *The archer god never missed. These are the projects where close enough was not the goal.*
 
-- **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** &nbsp; full 3D pipeline in plain JavaScript, no graphics API. barycentric fill, `1/w` z-buffer. **[runs in your browser](https://apollo-2006.github.io/cpu_rasterizer/)** &nbsp;`JS` `React`
-- **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** &nbsp; raytracer with no libraries: vector math, ray generation, camera, PPM output &nbsp;`C++`
-- **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** &nbsp; software rasterizer, perspective matrices and triangle fill written out longhand &nbsp;`C++17` `SDL2`
+| | |
+|---|---|
+| **[nano_match](https://github.com/apollo-2006/nano_match)** | limit order book with price time priority and no heap allocation on the matching path |
+| **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** | thread safe allocator over one `mmap` region, intrusive free list, block recycling |
+| **[neon_vm](https://github.com/apollo-2006/neon_vm)** | stack based virtual machine, bytecode chunking, its own dispatch loop |
 
-### tools I actually use
+## ⚵ &nbsp; harmony
 
-- **[terminal_dashboard](https://github.com/apollo-2006/terminal_dashboard)** &nbsp; system monitor with per core CPU, memory, network and GPU telemetry &nbsp;`Python` `Rich`
-- **[points-sys](https://github.com/apollo-2006/points-sys)** &nbsp; two player points economy, one HTML file, no build step, live synced &nbsp;`Firestore`
-- **[cal-cli](https://github.com/apollo-2006/cal-cli)** &nbsp; macro tracking from the command line, because logging a meal should be one command &nbsp;`Python`
+> *Apollo's lyre kept the Muses in agreement. Consensus is the same problem with worse failure modes.*
+
+| | |
+|---|---|
+| **[nexus_db](https://github.com/apollo-2006/nexus_db)** | embedded LSM key-value store: skip list memtable, write ahead log, immutable SSTables, tombstone compaction |
+| **[nexus_cluster](https://github.com/apollo-2006/nexus_cluster)** | Raft from scratch: leader election, log replication, term management, custom TCP transport |
+| **[nexus_editor](https://github.com/apollo-2006/nexus_editor)** | real time collaborative editor, fractional indexing CRDT, goroutine per client |
+
+## ⚕ &nbsp; healing
+
+> *Before medicine belonged to Asclepius it belonged to Apollo. Diagnosis first, then the cure.*
+
+| | |
+|---|---|
+| **[thermal_monitor](https://github.com/apollo-2006/thermal_monitor)** | daemon tracking CPU load, thermal curves and VRAM clocks into a local database |
+| **[terminal_dashboard](https://github.com/apollo-2006/terminal_dashboard)** | system monitor with per core CPU, memory, network and GPU telemetry |
+
+## ⌖ &nbsp; the hunt
+
+> *Not everything needs a myth behind it. Some of these exist because I wanted them to.*
+
+| | |
+|---|---|
+| **[valo_scout](https://github.com/apollo-2006/valo_scout)** | valorant stat tracker |
+| **[radiant_slice](https://github.com/apollo-2006/radiant_slice)** | barebones valorant style fps shooter |
+| **[cal-cli](https://github.com/apollo-2006/cal-cli)** | macro tracking from the command line, because logging a meal should be one command |
+| **[points-sys](https://github.com/apollo-2006/points-sys)** | two player points economy, one HTML file, no build step, live synced |
+| **[personal_portfolio](https://github.com/apollo-2006/personal_portfolio)** | [abirdeol.tech](https://abirdeol.tech), built from scratch |
 
 ---
 
-### things I got wrong
+## ⚱ &nbsp; hubris
+
+> *The Greeks had a word for being sure you had it right. In the stories it tends to arrive just before the interesting part.*
 
 Four of the projects above had a bug that cost me real hours. I wrote each one up
 afterwards: the symptom, how I chased it, what was actually wrong, and what I changed
@@ -62,9 +132,25 @@ about how I write that kind of code.
 - **[The order that was in two places](https://abirdeol.tech/research/order-pool)** &nbsp; a use after free that never crashed
 - **[A cluster that could not keep a leader](https://abirdeol.tech/research/election-timeouts)** &nbsp; when the runtime pauses longer than your failure detector waits
 
-### currently
+---
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=apollo-2006&show_icons=true&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&icon_color=d09a2e&include_all_commits=true&count_private=true" height="165" alt="stats">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=apollo-2006&layout=compact&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&langs_count=8" height="165" alt="languages">
+
+<br><br>
+
+## ⧗ &nbsp; currently
+
+</div>
 
 Working through machine learning from classical computer vision upward, and
 [writing down what I learn](https://abirdeol.tech/research) rather than collecting
-tutorials. Two-time national MMA champion, 2020 to 2024. Looking for software
+tutorials. Two time national MMA champion, 2020 to 2024. Looking for software
 engineering internships.
+
+<div align="center">
+<br>
+<sub><i>ἓν οἶδα ὅτι οὐδὲν οἶδα</i></sub>
+</div>
