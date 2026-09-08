@@ -64,6 +64,18 @@ itself, gates irreversible actions behind confirmation, and audits everything.
 
 <div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
+### upstream
+
+Open source work on [ggml-org](https://github.com/ggml-org), the C/C++ inference stack
+behind whisper.cpp and llama.cpp.
+
+| | |
+|---|---|
+| **[whisper.cpp #4031](https://github.com/ggml-org/whisper.cpp/pull/4031)** ![merged](https://img.shields.io/badge/merged-1f6f43?style=flat-square&labelColor=0b1220) | the tests aborted on any `GGML_BACKEND_DL=ON` build: no backend registers until something calls `ggml_backend_load_all()`, so init ran with zero devices and tripped an assert. every example already made that call, the tests were the only callers that did not. [found it](https://github.com/ggml-org/whisper.cpp/issues/4030), fixed it in four call sites |
+| **[whisper.cpp #4029](https://github.com/ggml-org/whisper.cpp/pull/4029)** | prebuilt macOS CLI binaries: arm64, x64, and a `lipo` fused universal archive that picks its CPU backend at load time, so one download runs on an M1 and an M4 without either giving up its instructions |
+| **[whisper.cpp #4019](https://github.com/ggml-org/whisper.cpp/pull/4019)** | documented the stream example's two output formats, and the CWD relative model path that surfaces as a context init failure |
+| **[llama.cpp #28261](https://github.com/ggml-org/llama.cpp/pull/28261)** | documented streaming tool call deltas and the Jinja requirement, every claim cited to file and line |
+
 ### distributed systems and storage
 
 | | |
