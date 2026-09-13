@@ -7,7 +7,7 @@
 [![website](https://img.shields.io/badge/abirdeol.tech-0b1220?style=for-the-badge&logo=astro&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech)
 [![resume](https://img.shields.io/badge/resume-0b1220?style=for-the-badge&logo=readdotcv&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/abir-deol-resume.pdf)
 [![linkedin](https://img.shields.io/badge/linkedin-0b1220?style=for-the-badge&logo=linkedin&logoColor=e8c25e&labelColor=0b1220)](https://linkedin.com/in/abirdeol)
-[![demo](https://img.shields.io/badge/live%20demo-0b1220?style=for-the-badge&logo=webgl&logoColor=e8c25e&labelColor=0b1220)](https://apollo-2006.github.io/cpu_rasterizer/)
+[![demos](https://img.shields.io/badge/10%20live%20demos-0b1220?style=for-the-badge&logo=webassembly&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/projects)
 
 <br>
 
@@ -60,7 +60,7 @@ itself, gates irreversible actions behind confirmation, and audits everything.
 ![cpp](https://img.shields.io/badge/933%20C%2B%2B%20checks-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![clippy](https://img.shields.io/badge/clippy-clean-1f6f43?style=flat-square&labelColor=0b1220)
 
-**[github.com/apollo-2006/oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)**
+**[github.com/apollo-2006/oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)** · **[try the HUD in your browser](https://apollo-2006.github.io/oracle-of-delphi/)** (scripted core; the real one needs a local GPU)
 
 <div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
@@ -78,27 +78,30 @@ behind whisper.cpp and llama.cpp.
 
 ### distributed systems and storage
 
+Every project marked **live** runs its real code in the browser: C and C++ compiled to
+WebAssembly, Python under Pyodide, each built and published by CI from the repository.
+
 | | |
 |---|---|
-| **[nexus_db](https://github.com/apollo-2006/nexus_db)** | embedded LSM key-value store: skip list memtable, write ahead log, immutable SSTables, tombstone compaction |
-| **[nexus_cluster](https://github.com/apollo-2006/nexus_cluster)** | Raft from scratch: leader election, log replication, term management, custom TCP transport |
-| **[nexus_editor](https://github.com/apollo-2006/nexus_editor)** | real time collaborative editor, fractional indexing CRDT, goroutine per client |
+| **[nexus_db](https://github.com/apollo-2006/nexus_db)** · [live](https://apollo-2006.github.io/nexus_db/) | embedded LSM key-value store: skip list memtable, write ahead log with crash recovery, immutable SSTables, tombstones. crash it in the demo and watch the log replay |
+| **[nexus_cluster](https://github.com/apollo-2006/nexus_cluster)** · [live](https://apollo-2006.github.io/nexus_cluster/) | Raft from the paper: elections, log replication, a replicated key-value store over TCP, and a simulation that checks the safety properties at every step |
+| **[nexus_editor](https://github.com/apollo-2006/nexus_editor)** · [live](https://apollo-2006.github.io/nexus_editor/) | collaborative editor on a fractional index CRDT with string positions and tombstones; three replicas converge through a delaying, reordering network |
 
 ### close to the metal
 
 | | |
 |---|---|
-| **[nano_match](https://github.com/apollo-2006/nano_match)** | limit order book with price time priority and no heap allocation on the matching path |
-| **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** | thread safe allocator over one `mmap` region, intrusive free list, block recycling |
-| **[neon_vm](https://github.com/apollo-2006/neon_vm)** | stack based virtual machine, bytecode chunking, its own dispatch loop |
+| **[nano_match](https://github.com/apollo-2006/nano_match)** · [live](https://apollo-2006.github.io/nano_match/) | limit order book, price time priority, no allocation after startup: 12M requests/s at a 50ns median on one core |
+| **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** · [live](https://apollo-2006.github.io/custom_mem_alloc/) | allocator over one `mmap` region: first fit, splitting, neighbour coalescing, aborts on double free, benchmarked against glibc |
+| **[neon_vm](https://github.com/apollo-2006/neon_vm)** · [live](https://apollo-2006.github.io/neon_vm/) | stack based bytecode VM with bounds checked single step dispatch and a step through debugger |
 
 ### graphics
 
 | | |
 |---|---|
-| **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** | full 3D pipeline in plain JavaScript, no graphics API. barycentric fill, `1/w` z-buffer. **[runs in your browser](https://apollo-2006.github.io/cpu_rasterizer/)** |
-| **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** | raytracer with no libraries: vector math, ray generation, camera, PPM output |
-| **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** | software rasterizer, perspective matrices and triangle fill written out longhand |
+| **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** · [live](https://apollo-2006.github.io/photon_tracer/) | path tracer with no libraries: 1080p at 50 spp in half a second on 32 threads, and on every core of your browser |
+| **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** · [live](https://apollo-2006.github.io/cpu_rasterizer/) | full 3D pipeline in plain JavaScript, no graphics API: barycentric fill, `1/w` z-buffer, 0.44 ms a frame |
+| **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** · [live](https://apollo-2006.github.io/rasterizer_engine/) | the same idea in C++ and SDL2: culling, flat shading and a depth buffer into a CPU framebuffer |
 
 ### tools I actually use
 
@@ -107,7 +110,7 @@ behind whisper.cpp and llama.cpp.
 | **[thermal_monitor](https://github.com/apollo-2006/thermal_monitor)** | daemon tracking CPU load, thermal curves and VRAM clocks into a local database |
 | **[terminal_dashboard](https://github.com/apollo-2006/terminal_dashboard)** | system monitor with per core CPU, memory, network and GPU telemetry |
 | **[cal-cli](https://github.com/apollo-2006/cal-cli)** | macro tracking from the command line, because logging a meal should be one command |
-| **[points-sys](https://github.com/apollo-2006/points-sys)** | two player points economy, one HTML file, no build step, live synced |
+| **points-sys** (private) | two player points economy, one HTML file, no build step, live synced |
 
 ### games and other things
 
