@@ -6,8 +6,8 @@
 
 [![website](https://img.shields.io/badge/abirdeol.tech-0b1220?style=for-the-badge&logo=astro&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech)
 [![resume](https://img.shields.io/badge/resume-0b1220?style=for-the-badge&logo=readdotcv&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/abir-deol-resume.pdf)
-[![linkedin](https://img.shields.io/badge/linkedin-0b1220?style=for-the-badge&logo=linkedin&logoColor=e8c25e&labelColor=0b1220)](https://linkedin.com/in/abirdeol)
-[![demos](https://img.shields.io/badge/10%20live%20demos-0b1220?style=for-the-badge&logo=webassembly&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/projects)
+[![linkedin](https://img.shields.io/badge/linkedin-0b1220?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiByeD0iMy41IiBmaWxsPSIjZThjMjVlIi8+PHJlY3QgeD0iNC45IiB5PSI5LjQiIHdpZHRoPSIzLjIiIGhlaWdodD0iOS42IiBmaWxsPSIjMGIxMjIwIi8+PGNpcmNsZSBjeD0iNi41IiBjeT0iNi4yIiByPSIxLjg1IiBmaWxsPSIjMGIxMjIwIi8+PHBhdGggZD0iTTEwLjQgOS40aDMuMDV2MS4zNWMuNDUtLjg1IDEuNTUtMS42NSAzLjItMS42NSAzLjEgMCAzLjY1IDIuMDUgMy42NSA0LjdWMTloLTMuMnYtNC42YzAtMS4xLS4wMi0yLjUtMS41Mi0yLjUtMS41MiAwLTEuNzYgMS4xOS0xLjc2IDIuNDJWMTloLTMuNDJ6IiBmaWxsPSIjMGIxMjIwIi8+PC9zdmc+Cg==&labelColor=0b1220)](https://linkedin.com/in/abirdeol)
+[![demos](https://img.shields.io/badge/10%20live%20demos-0b1220?style=for-the-badge&logo=webassembly&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/projects?filter=live)
 
 <br>
 
@@ -17,6 +17,7 @@
 ![Python](https://img.shields.io/badge/Python-0b1220?style=flat-square&logo=python&logoColor=e8c25e)
 ![TypeScript](https://img.shields.io/badge/TypeScript-0b1220?style=flat-square&logo=typescript&logoColor=e8c25e)
 ![Go](https://img.shields.io/badge/Go-0b1220?style=flat-square&logo=go&logoColor=e8c25e)
+![WebAssembly](https://img.shields.io/badge/WebAssembly-0b1220?style=flat-square&logo=webassembly&logoColor=e8c25e)
 ![Arch](https://img.shields.io/badge/Arch%20Linux-0b1220?style=flat-square&logo=archlinux&logoColor=e8c25e)
 
 <img src="./assets/divider-v2.svg" width="100%" alt="">
@@ -56,71 +57,165 @@ The design premise is that the model is an untrusted planner. Actuation lives in
 separate privileged daemon that recomputes the required capability from the operation
 itself, gates irreversible actions behind confirmation, and audits everything.
 
-![tests](https://img.shields.io/badge/409%20Rust%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
+![tests](https://img.shields.io/badge/481%20Rust%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![cpp](https://img.shields.io/badge/933%20C%2B%2B%20checks-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![clippy](https://img.shields.io/badge/clippy-clean-1f6f43?style=flat-square&labelColor=0b1220)
+![platforms](https://img.shields.io/badge/CI-Linux%20%C2%B7%20macOS%20%C2%B7%20Windows-1f6f43?style=flat-square&labelColor=0b1220)
 
 **[github.com/apollo-2006/oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)** · **[try the HUD in your browser](https://apollo-2006.github.io/oracle-of-delphi/)** (scripted core; the real one needs a local GPU)
 
 <div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
-### upstream
+## live demos
 
-Open source work on [ggml-org](https://github.com/ggml-org), the C/C++ inference stack
-behind whisper.cpp and llama.cpp.
+Every demo runs the project's own code in your browser: C and C++ compiled to
+WebAssembly, Python under Pyodide, TypeScript and JavaScript as written. GitHub Actions
+builds each one from its repository and publishes it to Pages. Click a card to open it.
 
-| | |
-|---|---|
-| **[whisper.cpp #4031](https://github.com/ggml-org/whisper.cpp/pull/4031)** ![merged](https://img.shields.io/badge/merged-1f6f43?style=flat-square&labelColor=0b1220) | the tests aborted on any `GGML_BACKEND_DL=ON` build: no backend registers until something calls `ggml_backend_load_all()`, so init ran with zero devices and tripped an assert. every example already made that call, the tests were the only callers that did not. [found it](https://github.com/ggml-org/whisper.cpp/issues/4030), fixed it in four call sites |
-| **[whisper.cpp #4029](https://github.com/ggml-org/whisper.cpp/pull/4029)** | prebuilt macOS CLI binaries: arm64, x64, and a `lipo` fused universal archive that picks its CPU backend at load time, so one download runs on an M1 and an M4 without either giving up its instructions |
-| **[whisper.cpp #4019](https://github.com/ggml-org/whisper.cpp/pull/4019)** | documented the stream example's two output formats, and the CWD relative model path that surfaces as a context init failure |
-| **[llama.cpp #28261](https://github.com/ggml-org/llama.cpp/pull/28261)** | documented streaming tool call deltas and the Jinja requirement, every claim cited to file and line |
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/oracle-of-delphi/"><img src="./assets/demos/oracle-of-delphi.jpg" alt="oracle-of-delphi live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/oracle-of-delphi">oracle-of-delphi</a></b><br>
+the real HUD of the assistant above, with a scripted core standing in for the local GPU
+</td>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/nexus_cluster/"><img src="./assets/demos/nexus_cluster.jpg" alt="nexus_cluster live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/nexus_cluster">nexus_cluster</a></b><br>
+Raft from the paper, with a simulation that checks the safety properties at every step
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/nexus_db/"><img src="./assets/demos/nexus_db.jpg" alt="nexus_db live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/nexus_db">nexus_db</a></b><br>
+LSM key value store: skip list memtable, write ahead log, SSTables and tombstones
+</td>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/nexus_editor/"><img src="./assets/demos/nexus_editor.jpg" alt="nexus_editor live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/nexus_editor">nexus_editor</a></b><br>
+collaborative editing on a fractional index CRDT with string positions and tombstones
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/nano_match/"><img src="./assets/demos/nano_match.jpg" alt="nano_match live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/nano_match">nano_match</a></b><br>
+limit order book, no allocation after startup: 12M requests/s at a 50ns median on one core
+</td>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/custom_mem_alloc/"><img src="./assets/demos/custom_mem_alloc.jpg" alt="custom_mem_alloc live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/custom_mem_alloc">custom_mem_alloc</a></b><br>
+allocator over one <code>mmap</code> region: first fit, splitting, neighbour coalescing, benchmarked against glibc
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/neon_vm/"><img src="./assets/demos/neon_vm.jpg" alt="neon_vm live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/neon_vm">neon_vm</a></b><br>
+stack based bytecode VM with bounds checked single step dispatch and a step through debugger
+</td>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/photon_tracer/"><img src="./assets/demos/photon_tracer.jpg" alt="photon_tracer live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/photon_tracer">photon_tracer</a></b><br>
+path tracer with no libraries: 1080p at 50 spp in half a second on 32 threads
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/cpu_rasterizer/"><img src="./assets/demos/cpu_rasterizer.jpg" alt="cpu_rasterizer live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/cpu_rasterizer">cpu_rasterizer</a></b><br>
+a full 3D pipeline in plain JavaScript with no graphics API, 0.43 ms a frame
+</td>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/rasterizer_engine/"><img src="./assets/demos/rasterizer_engine.jpg" alt="rasterizer_engine live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/rasterizer_engine">rasterizer_engine</a></b><br>
+the same idea in C++ and SDL2: culling, flat shading and a depth buffer on the CPU
+</td>
+</tr>
+</table>
 
-### distributed systems and storage
+<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
-Every project marked **live** runs its real code in the browser: C and C++ compiled to
-WebAssembly, Python under Pyodide, each built and published by CI from the repository.
+## upstream
 
-| | |
-|---|---|
-| **[nexus_db](https://github.com/apollo-2006/nexus_db)** · [live](https://apollo-2006.github.io/nexus_db/) | embedded LSM key-value store: skip list memtable, write ahead log with crash recovery, immutable SSTables, tombstones. crash it in the demo and watch the log replay |
-| **[nexus_cluster](https://github.com/apollo-2006/nexus_cluster)** · [live](https://apollo-2006.github.io/nexus_cluster/) | Raft from the paper: elections, log replication, a replicated key-value store over TCP, and a simulation that checks the safety properties at every step |
-| **[nexus_editor](https://github.com/apollo-2006/nexus_editor)** · [live](https://apollo-2006.github.io/nexus_editor/) | collaborative editor on a fractional index CRDT with string positions and tombstones; three replicas converge through a delaying, reordering network |
+Pull requests to open source projects. About half fix memory safety bugs or crashes,
+found with sanitizers and Miri. The badges show each one's live state on GitHub, and
+[abirdeol.tech/work](https://abirdeol.tech/work) has the reasoning behind each.
 
-### close to the metal
+<table>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4031"><b>whisper.cpp&nbsp;#4031</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4031"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4031?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">the tests aborted on any <code>GGML_BACKEND_DL=ON</code> build: no backend registers until something calls <code>ggml_backend_load_all()</code>, and the tests were the only callers that did not. <a href="https://github.com/ggml-org/whisper.cpp/issues/4030">found it</a>, fixed it in four call sites</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4064"><b>whisper.cpp&nbsp;#4064</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4064"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4064?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">heap out of bounds read when a VAD model declares any encoder layer count but four, reachable from <code>whisper-cli --vad</code></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/huggingface/candle/pull/3965"><b>candle&nbsp;#3965</b></a><br><a href="https://github.com/huggingface/candle/pull/3965"><img src="https://img.shields.io/github/pulls/detail/state/huggingface/candle/3965?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">heap overflow in <code>Tensor::from_raw_buffer</code>, reachable from safe code: a seven byte f32 buffer wrote past its allocation and returned <code>Ok</code></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/huggingface/candle/pull/3963"><b>candle&nbsp;#3963</b></a><br><a href="https://github.com/huggingface/candle/pull/3963"><img src="https://img.shields.io/github/pulls/detail/state/huggingface/candle/3963?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">undefined behaviour loading quantized GGML tensors, a byte slice cast to blocks with no length or alignment check</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/huggingface/tokenizers/pull/2398"><b>tokenizers&nbsp;#2398</b></a><br><a href="https://github.com/huggingface/tokenizers/pull/2398"><img src="https://img.shields.io/github/pulls/detail/state/huggingface/tokenizers/2398?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">a malformed BPE merge list produced invalid UTF-8 through <code>from_utf8_unchecked</code>; the fix removes the unsafe block</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/espeak-ng/espeak-ng/pull/2530"><b>espeak-ng&nbsp;#2530</b></a><br><a href="https://github.com/espeak-ng/espeak-ng/pull/2530"><img src="https://img.shields.io/github/pulls/detail/state/espeak-ng/espeak-ng/2530?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">an unsigned subtraction read before a heap string on ordinary voice selection, on nearly every run, found under UBSan</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/espeak-ng/espeak-ng/pull/2537"><b>espeak-ng&nbsp;#2537</b></a><br><a href="https://github.com/espeak-ng/espeak-ng/pull/2537"><img src="https://img.shields.io/github/pulls/detail/state/espeak-ng/espeak-ng/2537?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">a zero length phoneme data file crashed the process through a NULL buffer no caller checked</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/pdf-rs/pdf/pull/296"><b>pdf-rs&nbsp;#296</b></a><br><a href="https://github.com/pdf-rs/pdf/pull/296"><img src="https://img.shields.io/github/pulls/detail/state/pdf-rs/pdf/296?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">a PDF declaring a function domain backwards panicked the parser</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/pdf-rs/pdf/pull/295"><b>pdf-rs&nbsp;#295</b></a><br><a href="https://github.com/pdf-rs/pdf/pull/295"><img src="https://img.shields.io/github/pulls/detail/state/pdf-rs/pdf/295?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">encrypted files from some producers could not be opened with any password, because <code>/P</code> was written as an unsigned 32 bit integer</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/llama.cpp/pull/28462"><b>llama.cpp&nbsp;#28462</b></a><br><a href="https://github.com/ggml-org/llama.cpp/pull/28462"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/llama.cpp/28462?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">a release tarball unpacked inside any other git repository stamped that repository's commit into <code>--version</code></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/espeak-ng/espeak-ng/pull/2529"><b>espeak-ng&nbsp;#2529</b></a><br><a href="https://github.com/espeak-ng/espeak-ng/pull/2529"><img src="https://img.shields.io/github/pulls/detail/state/espeak-ng/espeak-ng/2529?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top"><code>-Wimplicit-fallthrough</code> for the thousand line language table, where a missing <code>break</code> silently gives one language another's settings</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4047"><b>whisper.cpp&nbsp;#4047</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4047"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4047?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">the CI leg that would have caught #4031 before it shipped</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4029"><b>whisper.cpp&nbsp;#4029</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4029"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4029?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">prebuilt macOS binaries, including a <code>lipo</code> fused universal archive that picks its CPU backend at load time</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4019"><b>whisper.cpp&nbsp;#4019</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4019"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4019?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">documented the stream example's two output formats, and the working directory relative model path that surfaces as an init failure</td>
+</tr>
+</table>
 
-| | |
-|---|---|
-| **[nano_match](https://github.com/apollo-2006/nano_match)** · [live](https://apollo-2006.github.io/nano_match/) | limit order book, price time priority, no allocation after startup: 12M requests/s at a 50ns median on one core |
-| **[custom_mem_alloc](https://github.com/apollo-2006/custom_mem_alloc)** · [live](https://apollo-2006.github.io/custom_mem_alloc/) | allocator over one `mmap` region: first fit, splitting, neighbour coalescing, aborts on double free, benchmarked against glibc |
-| **[neon_vm](https://github.com/apollo-2006/neon_vm)** · [live](https://apollo-2006.github.io/neon_vm/) | stack based bytecode VM with bounds checked single step dispatch and a step through debugger |
-
-### graphics
-
-| | |
-|---|---|
-| **[photon_tracer](https://github.com/apollo-2006/photon_tracer)** · [live](https://apollo-2006.github.io/photon_tracer/) | path tracer with no libraries: 1080p at 50 spp in half a second on 32 threads, and on every core of your browser |
-| **[cpu_rasterizer](https://github.com/apollo-2006/cpu_rasterizer)** · [live](https://apollo-2006.github.io/cpu_rasterizer/) | full 3D pipeline in plain JavaScript, no graphics API: barycentric fill, `1/w` z-buffer, 0.44 ms a frame |
-| **[rasterizer_engine](https://github.com/apollo-2006/rasterizer_engine)** · [live](https://apollo-2006.github.io/rasterizer_engine/) | the same idea in C++ and SDL2: culling, flat shading and a depth buffer into a CPU framebuffer |
+<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
 ### tools I actually use
 
-| | |
-|---|---|
-| **[thermal_monitor](https://github.com/apollo-2006/thermal_monitor)** | daemon tracking CPU load, thermal curves and VRAM clocks into a local database |
-| **[terminal_dashboard](https://github.com/apollo-2006/terminal_dashboard)** | system monitor with per core CPU, memory, network and GPU telemetry |
-| **[cal-cli](https://github.com/apollo-2006/cal-cli)** | macro tracking from the command line, because logging a meal should be one command |
-| **points-sys** (private) | two player points economy, one HTML file, no build step, live synced |
+- **[thermal_monitor](https://github.com/apollo-2006/thermal_monitor)** &nbsp; terminal daemon logging CPU load, package temperature and memory to SQLite twice a second
+- **[terminal_dashboard](https://github.com/apollo-2006/terminal_dashboard)** &nbsp; terminal system monitor: per core CPU, memory, network, and live AMD GPU sensors on Windows and Linux
+- **[cal-cli](https://github.com/apollo-2006/cal-cli)** &nbsp; macro tracking from the command line, because logging a meal should be one command
+- **points-sys** (private) &nbsp; two player points economy, one HTML file, no build step, live synced
 
 ### games and other things
 
-| | |
-|---|---|
-| **[valo_scout](https://github.com/apollo-2006/valo_scout)** | valorant stat tracker |
-| **[radiant_slice](https://github.com/apollo-2006/radiant_slice)** | barebones valorant style fps shooter |
-| **[personal_portfolio](https://github.com/apollo-2006/personal_portfolio)** | [abirdeol.tech](https://abirdeol.tech), built from scratch |
-
-<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
+- **[valo_scout](https://github.com/apollo-2006/valo_scout)** &nbsp; Valorant match analyzer, ranking games on combat and utility with a hand written heapsort
+- **[radiant_slice](https://github.com/apollo-2006/radiant_slice)** &nbsp; tactical FPS systems in Unreal Engine 5 C++: counter strafing, spray patterns, lag compensation
+- **[personal_portfolio](https://github.com/apollo-2006/personal_portfolio)** &nbsp; [abirdeol.tech](https://abirdeol.tech), built from scratch
 
 ### things I got wrong
 
@@ -140,11 +235,4 @@ Working through machine learning from classical computer vision upward, and
 tutorials. Two time national MMA champion, 2020 to 2024. Looking for software
 engineering internships.
 
-<div align="center">
-
-<img src="./assets/divider-v2.svg" width="100%" alt="">
-
-<img src="https://github-readme-stats.vercel.app/api?username=apollo-2006&show_icons=true&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&icon_color=d09a2e&include_all_commits=true&count_private=true" height="165" alt="stats">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=apollo-2006&layout=compact&hide_border=true&bg_color=0b1220&title_color=e8c25e&text_color=cfc9bb&langs_count=8" height="165" alt="languages">
-
-</div>
+<div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
