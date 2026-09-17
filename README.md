@@ -140,10 +140,27 @@ the same idea in C++ and SDL2: culling, flat shading and a depth buffer on the C
 ## upstream
 
 Pull requests to open source projects. About half fix memory safety bugs or crashes,
-found with sanitizers and Miri. The badges show each one's live state on GitHub, and
+found with sanitizers, Miri and the Vulkan validation layers. Most started as an issue I
+reported and then fixed myself. The badges show each one's live state on GitHub, and
 [abirdeol.tech/work](https://abirdeol.tech/work) has the reasoning behind each.
 
 <table>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13104"><b>Vulkan-ValidationLayers&nbsp;#13104</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13104"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13104?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">GPU-AV segfaulted <code>vkCreateComputePipelines</code> on any <code>coopMatLoad</code> or <code>coopMatStore</code> whose stride was computed at runtime, because the instrumentation pass read the stride as if it were always constant. <a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/issues/13098">found it</a>, fixed the pass</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/ggml-org/llama.cpp/pull/28996"><b>llama.cpp&nbsp;#28996</b></a><br><a href="https://github.com/ggml-org/llama.cpp/pull/28996"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/llama.cpp/28996?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">the Vulkan <code>im2col</code> shaders wrote through a <code>buffer_reference</code> with no declared alignment, so every store was emitted as <code>Aligned 16</code> against a 2 or 4 byte stride. <a href="https://github.com/ggml-org/llama.cpp/issues/28960">found it</a> with the validation layers, 40 VUID hits to zero</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/lemonade-sdk/lemonade/pull/3601"><b>lemonade&nbsp;#3601</b></a><br><a href="https://github.com/lemonade-sdk/lemonade/pull/3601"><img src="https://img.shields.io/github/pulls/detail/state/lemonade-sdk/lemonade/3601?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">AMD GPUs on Linux were named by their raw KFD <code>gfx_target_version</code>, so an RX 9070 XT reported itself as <code>120001</code>. that same field keys the ROCm arch lookup, so the readable name had to be added beside it rather than replace it. <a href="https://github.com/lemonade-sdk/lemonade/issues/3592">found it</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/lemonade-sdk/lemonade/pull/3611"><b>lemonade&nbsp;#3611</b></a><br><a href="https://github.com/lemonade-sdk/lemonade/pull/3611"><img src="https://img.shields.io/github/pulls/detail/state/lemonade-sdk/lemonade/3611?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">embedding requests over 512 tokens failed with a 500 under an 8192 token context: an embedding model is non causal, so the micro batch is the real ceiling and it was left at the default. <a href="https://github.com/lemonade-sdk/lemonade/issues/3591">found it</a></td>
+</tr>
 <tr>
 <td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4031"><b>whisper.cpp&nbsp;#4031</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4031"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4031?style=flat-square&label=" alt="pull request state"></a></td>
 <td valign="top">the tests aborted on any <code>GGML_BACKEND_DL=ON</code> build: no backend registers until something calls <code>ggml_backend_load_all()</code>, and the tests were the only callers that did not. <a href="https://github.com/ggml-org/whisper.cpp/issues/4030">found it</a>, fixed it in four call sites</td>
