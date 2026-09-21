@@ -150,6 +150,10 @@ reported and then fixed myself. The badges show each one's live state on GitHub,
 <td valign="top">GPU-AV segfaulted <code>vkCreateComputePipelines</code> on any <code>coopMatLoad</code> or <code>coopMatStore</code> whose stride was computed at runtime, because the instrumentation pass read the stride as if it were always constant. <a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/issues/13098">found it</a>, fixed the pass</td>
 </tr>
 <tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13150"><b>Vulkan-ValidationLayers&nbsp;#13150</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13150"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13150?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">an application indexing its shared memory out of bounds made GPU-AV read back a word that was never a packed instruction offset, then decode it anyway and walk off an empty operand list. <a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/issues/13134">found it</a> under a real llama.cpp workload, fixed it over five review rounds</td>
+</tr>
+<tr>
 <td valign="top"><a href="https://github.com/ggml-org/llama.cpp/pull/28996"><b>llama.cpp&nbsp;#28996</b></a><br><a href="https://github.com/ggml-org/llama.cpp/pull/28996"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/llama.cpp/28996?style=flat-square&label=" alt="pull request state"></a></td>
 <td valign="top">the Vulkan <code>im2col</code> shaders wrote through a <code>buffer_reference</code> with no declared alignment, so every store was emitted as <code>Aligned 16</code> against a 2 or 4 byte stride. <a href="https://github.com/ggml-org/llama.cpp/issues/28960">found it</a> with the validation layers, 40 VUID hits to zero</td>
 </tr>
