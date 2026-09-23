@@ -24,7 +24,7 @@
 
 </div>
 
-Second year computing science at the University of Alberta. I write low level systems
+Third year computing science at the University of Alberta. I write low level systems
 from scratch to find out what is underneath the abstraction: an allocator instead of
 `malloc`, Raft instead of a database that already handles consensus, a rasterizer
 instead of a graphics API.
