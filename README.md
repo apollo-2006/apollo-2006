@@ -24,7 +24,7 @@ somewhere to start.
 
 ## upstream
 
-**10 pull requests merged** into the Vulkan validation layers, whisper.cpp, llama.cpp and lemonade, and
+**11 pull requests merged** into the Vulkan validation layers, whisper.cpp, llama.cpp and lemonade, and
 driver bugs reported to Mesa that RADV developers have picked up. Most started as a bug I found, reported
 and then fixed myself, with sanitizers, Miri or the validation layers. The badges show each one's live state,
 and [abirdeol.tech/work](https://abirdeol.tech/work) has the reasoning behind each.
