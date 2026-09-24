@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 220" width="1000" height="220" role="img" aria-label="Abir Deol">
+  <rect width="1000" height="220" fill="#0b1019"/>
+  <g fill="#f3e6c4" opacity="0.4"><circle cx="800" cy="60" r="0.9"/><circle cx="870" cy="170" r="0.8"/><circle cx="120" cy="40" r="0.8"/><circle cx="930" cy="110" r="1"/></g>
+  <circle cx="858" cy="92" r="16" fill="#f3e6c4" opacity="0.9"/><circle cx="865" cy="87" r="14.5" fill="#0b1019"/>
+  <text x="80" y="112" font-family="Georgia, 'Times New Roman', serif" font-size="46" letter-spacing="11" fill="#f3e6c4">ABIR DEOL</text>
+  <rect x="82" y="130" width="46" height="2" fill="#c9a24a"/>
+  <text x="82" y="162" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="5.5" fill="#c9a24a">APOLLO · GPU DRIVERS · VULKAN · SYSTEMS</text>
+</svg>

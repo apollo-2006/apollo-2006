@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner-v4.svg" alt="Abir Deol" width="100%">
+<img src="./assets/banner-v5.svg" alt="Abir Deol" width="100%">
 
 <br>
 
