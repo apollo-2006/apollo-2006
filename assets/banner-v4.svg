@@ -101,8 +101,30 @@
         font-size="42" letter-spacing="10" fill="#ffe9b0">ABIR DEOL</text>
   <text x="476" y="178" font-family="Georgia, 'Times New Roman', serif"
         font-size="12.5" letter-spacing="5.2" fill="#d09a2e" opacity="0.9">
-    SYSTEMS · GRAPHICS · DISTRIBUTED
+    GPU DRIVERS · VULKAN · SYSTEMS
   </text>
+
+  <!-- the other apollo: a command and service module on a free-return arc to the moon -->
+  <g>
+    <circle cx="928" cy="72" r="20" fill="#ffe9b0" opacity="0.9"/>
+    <circle cx="936" cy="66" r="18" fill="#141d31"/>
+    <circle cx="928" cy="72" r="34" fill="url(#glow)" opacity="0.5"/>
+  </g>
+  <path id="trajectory" d="M 470 236 C 650 262, 850 252, 902 104"
+        fill="none" stroke="#d09a2e" stroke-width="1.1" stroke-dasharray="3 7" opacity="0.55"/>
+  <g>
+    <animateMotion dur="14s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
+      <mpath href="#trajectory"/>
+    </animateMotion>
+    <!-- drawn pointing along +x: engine bell, service module, command module -->
+    <path d="M -17 -3 L -13 -2 L -13 2 L -17 3 Z" fill="#d09a2e"/>
+    <rect x="-13" y="-4.2" width="13" height="8.4" rx="0.8" fill="#e8c25e"/>
+    <path d="M 0 -4.2 L 9 -1.2 L 9 1.2 L 0 4.2 Z" fill="#ffe9b0"/>
+    <line x1="-11" y1="-4.2" x2="-11" y2="4.2" stroke="#0b1220" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="-22" cy="0" r="2.2" fill="#ffd97a" opacity="0.8">
+      <animate attributeName="r" values="1.6;2.8;1.6" dur="0.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
 
   <rect x="0" y="8"   width="1000" height="16" fill="url(#meander)"/>
   <rect x="0" y="276" width="1000" height="16" fill="url(#meander)"/>
