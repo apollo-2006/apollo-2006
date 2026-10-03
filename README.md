@@ -7,7 +7,7 @@
 [![website](https://img.shields.io/badge/abirdeol.tech-0b1220?style=for-the-badge&logo=astro&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech)
 [![resume](https://img.shields.io/badge/resume-0b1220?style=for-the-badge&logo=readdotcv&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/abir-deol-resume.pdf)
 [![linkedin](https://img.shields.io/badge/linkedin-0b1220?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHJlY3QgeD0iMSIgeT0iMSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiByeD0iMy41IiBmaWxsPSIjZThjMjVlIi8+PHJlY3QgeD0iNC45IiB5PSI5LjQiIHdpZHRoPSIzLjIiIGhlaWdodD0iOS42IiBmaWxsPSIjMGIxMjIwIi8+PGNpcmNsZSBjeD0iNi41IiBjeT0iNi4yIiByPSIxLjg1IiBmaWxsPSIjMGIxMjIwIi8+PHBhdGggZD0iTTEwLjQgOS40aDMuMDV2MS4zNWMuNDUtLjg1IDEuNTUtMS42NSAzLjItMS42NSAzLjEgMCAzLjY1IDIuMDUgMy42NSA0LjdWMTloLTMuMnYtNC42YzAtMS4xLS4wMi0yLjUtMS41Mi0yLjUtMS41MiAwLTEuNzYgMS4xOS0xLjc2IDIuNDJWMTloLTMuNDJ6IiBmaWxsPSIjMGIxMjIwIi8+PC9zdmc+Cg==&labelColor=0b1220)](https://linkedin.com/in/abirdeol)
-[![demos](https://img.shields.io/badge/10%20live%20demos-0b1220?style=for-the-badge&logo=webassembly&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/projects?filter=live)
+[![demos](https://img.shields.io/badge/11%20live%20demos-0b1220?style=for-the-badge&logo=webassembly&logoColor=e8c25e&labelColor=0b1220)](https://abirdeol.tech/projects?filter=live)
 
 </div>
 
@@ -151,72 +151,72 @@ already have fixes and became Vulkan CTS tickets.
 
 <div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
-## oracle-of-delphi
+## colossus
 
-A fully local autonomous voice assistant. Sub-600ms bidirectional speech with barge-in,
-OS level machine control, dual layer persistent memory over a knowledge graph, and a
-WebGL holographic HUD. It boots offline with no GPU, no model download and no
-credentials, then swaps in real backends behind traits.
+Virtualized geometry from scratch in C++20 and Vulkan: the idea behind Unreal Engine 5's
+Nanite, built with nothing but Vulkan and GLFW. 900 scanned statues, 15.9 billion
+triangles at full detail, drawn at 1920x1080 in 1.33 ms on an RX 9070 XT with soft
+shadows, ambient occlusion and antialiasing. A million instances take 1.63 ms.
 
 ```
-oracle-audio (C++/RT)  ──shm+socket──▶  oracle-core (Rust/Tokio)  ──WS──▶  oracle-hud
-   capture · VAD ·                          agent loop · memory ·
-   barge-in · TTS                           connectors · gateway
-                                                  │
-                                          authed UDS (SO_PEERCRED)
-                                                  ▼
-                                        oracle-actd (Rust, privileged)
-                                        policy · input · shell · audit
+colossus_build (C++20)                      colossus (Vulkan 1.3)
+  scan ─▶ clusters of 128 triangles           stream pages from disk, on demand
+       ─▶ group, lock, simplify, repeat       cull cells ─▶ instances ─▶ clusters
+       ─▶ prove each level's error            mesh shaders + a compute rasterizer
+       ─▶ bit-packed pages  ──── .cgeo ────▶  virtual shadow maps · gtao · taa
+                                              (and the same pipeline in WebGPU)
 ```
 
-The design premise is that the model is an untrusted planner. Actuation lives in a
-separate privileged daemon that recomputes the required capability from the operation
-itself, gates irreversible actions behind confirmation, and audits everything.
+The design premise is that "within a pixel" should be a proof, not an estimate. Each
+level's error is an upper bound on its distance from the original scan, its projection
+to the screen is bounded too, and errors only grow toward the root, so one comparison
+per cluster picks exactly one level on every path with no tree to walk. Every level
+indexes the original vertices, so a crack is exact, and every cut checked has none.
 
-![tests](https://img.shields.io/badge/481%20Rust%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
-![cpp](https://img.shields.io/badge/933%20C%2B%2B%20checks-passing-1f6f43?style=flat-square&labelColor=0b1220)
-![clippy](https://img.shields.io/badge/clippy-clean-1f6f43?style=flat-square&labelColor=0b1220)
-![platforms](https://img.shields.io/badge/CI-Linux%20%C2%B7%20macOS%20%C2%B7%20Windows-1f6f43?style=flat-square&labelColor=0b1220)
+![tests](https://img.shields.io/badge/builder%20%2B%20streamer%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
+![cracks](https://img.shields.io/badge/cracked%20edges-0-1f6f43?style=flat-square&labelColor=0b1220)
+![triangles](https://img.shields.io/badge/15.9B%20triangles-1.33%20ms-1f6f43?style=flat-square&labelColor=0b1220)
+![webgpu](https://img.shields.io/badge/WebGPU%20port-live-1f6f43?style=flat-square&labelColor=0b1220)
 
-**[github.com/apollo-2006/oracle-of-delphi](https://github.com/apollo-2006/oracle-of-delphi)** · **[try the HUD in your browser](https://apollo-2006.github.io/oracle-of-delphi/)** (scripted core; the real one needs a local GPU)
+**[github.com/apollo-2006/colossus](https://github.com/apollo-2006/colossus)** · **[fly through it in your browser](https://apollo-2006.github.io/colossus/)** (WebGPU; needs a desktop GPU)
 
 <div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
 ## live demos
 
 Every demo runs the project's own code in your browser: C and C++ compiled to WebAssembly, Python under
-Pyodide, TypeScript and JavaScript as written. GitHub Actions builds each one from its repository and
+Pyodide, TypeScript and JavaScript as written, WGSL on your GPU. GitHub Actions builds each one from its repository and
 publishes it to Pages.
 
 <table>
 <tr>
 <td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/colossus/"><img src="./assets/demos/colossus.jpg" alt="colossus live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/colossus">colossus</a></b><br>
+the renderer above in WebGPU: streamed clusters, two rasterizers, virtual shadow maps, a crowd up to a million
+</td>
+<td width="50%" valign="top">
 <a href="https://apollo-2006.github.io/nexus_cluster/"><img src="./assets/demos/nexus_cluster.jpg" alt="nexus_cluster live demo"></a>
 <br><b><a href="https://github.com/apollo-2006/nexus_cluster">nexus_cluster</a></b><br>
 Raft from the paper, with a simulation that checks the safety properties at every step
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 <a href="https://apollo-2006.github.io/nano_match/"><img src="./assets/demos/nano_match.jpg" alt="nano_match live demo"></a>
 <br><b><a href="https://github.com/apollo-2006/nano_match">nano_match</a></b><br>
 limit order book, no allocation after startup: 12M requests/s at a 50ns median on one core
 </td>
-</tr>
-<tr>
 <td width="50%" valign="top">
 <a href="https://apollo-2006.github.io/photon_tracer/"><img src="./assets/demos/photon_tracer.jpg" alt="photon_tracer live demo"></a>
 <br><b><a href="https://github.com/apollo-2006/photon_tracer">photon_tracer</a></b><br>
 path tracer with no libraries: 1080p at 50 spp in half a second on 32 threads
 </td>
-<td width="50%" valign="top">
-<a href="https://apollo-2006.github.io/nexus_db/"><img src="./assets/demos/nexus_db.jpg" alt="nexus_db live demo"></a>
-<br><b><a href="https://github.com/apollo-2006/nexus_db">nexus_db</a></b><br>
-LSM key value store: skip list memtable, write ahead log, SSTables and tombstones
-</td>
 </tr>
 </table>
 
 <details>
-<summary><b>6 more demos</b></summary>
+<summary><b>7 more demos</b></summary>
 <br>
 
 <table>
@@ -224,7 +224,7 @@ LSM key value store: skip list memtable, write ahead log, SSTables and tombstone
 <td width="50%" valign="top">
 <a href="https://apollo-2006.github.io/oracle-of-delphi/"><img src="./assets/demos/oracle-of-delphi.jpg" alt="oracle-of-delphi live demo"></a>
 <br><b><a href="https://github.com/apollo-2006/oracle-of-delphi">oracle-of-delphi</a></b><br>
-the real HUD of the assistant above, with a scripted core standing in for the local GPU
+the real HUD of a fully local voice assistant, with a scripted core standing in for the local GPU
 </td>
 <td width="50%" valign="top">
 <a href="https://apollo-2006.github.io/nexus_editor/"><img src="./assets/demos/nexus_editor.jpg" alt="nexus_editor live demo"></a>
@@ -255,6 +255,14 @@ a full 3D pipeline in plain JavaScript with no graphics API, 0.43 ms a frame
 <br><b><a href="https://github.com/apollo-2006/rasterizer_engine">rasterizer_engine</a></b><br>
 the same idea in C++ and SDL2: culling, flat shading and a depth buffer on the CPU
 </td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://apollo-2006.github.io/nexus_db/"><img src="./assets/demos/nexus_db.jpg" alt="nexus_db live demo"></a>
+<br><b><a href="https://github.com/apollo-2006/nexus_db">nexus_db</a></b><br>
+LSM key value store: skip list memtable, write ahead log, SSTables and tombstones
+</td>
+<td width="50%" valign="top"></td>
 </tr>
 </table>
 
