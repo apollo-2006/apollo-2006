@@ -173,6 +173,11 @@ to the screen is bounded too, and errors only grow toward the root, so one compa
 per cluster picks exactly one level on every path with no tree to walk. Every level
 indexes the original vertices, so a crack is exact, and every cut checked has none.
 
+It takes real content too: the Smithsonian's George Washington scan streaming its own
+texture, skinned and animated foxes, and a photoscanned pine forest of 753 million
+triangles drawn in 5.6 ms. I wrote up how it was built, and where the proofs ran out, in
+**[Within a Pixel](https://abirdeol.tech/abir-deol-colossus-within-a-pixel.pdf)**.
+
 ![tests](https://img.shields.io/badge/builder%20%2B%20streamer%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![cracks](https://img.shields.io/badge/cracked%20edges-0-1f6f43?style=flat-square&labelColor=0b1220)
 ![triangles](https://img.shields.io/badge/15.9B%20triangles-1.48%20ms-1f6f43?style=flat-square&labelColor=0b1220)
