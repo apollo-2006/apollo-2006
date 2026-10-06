@@ -176,7 +176,10 @@ indexes the original vertices, so a crack is exact, and every cut checked has no
 It takes real content too: the Smithsonian's George Washington scan streaming its own
 texture, skinned and animated foxes, and a photoscanned pine forest of 753 million
 triangles drawn in 5.6 ms. I wrote up how it was built, and where the proofs ran out, in
-**[Within a Pixel](https://abirdeol.tech/abir-deol-colossus-within-a-pixel.pdf)**.
+**[Within a Pixel](https://abirdeol.tech/abir-deol-colossus-within-a-pixel.pdf)**,
+including a head-to-head with meshoptimizer's reference builder. **[A minute of it on
+video](https://apollo-2006.github.io/colossus/colossus.mp4)**, and the
+[1.0 release](https://github.com/apollo-2006/colossus/releases/tag/v1.0).
 
 ![tests](https://img.shields.io/badge/builder%20%2B%20streamer%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![cracks](https://img.shields.io/badge/cracked%20edges-0-1f6f43?style=flat-square&labelColor=0b1220)
