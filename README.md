@@ -155,8 +155,8 @@ already have fixes and became Vulkan CTS tickets.
 
 Virtualized geometry from scratch in C++20 and Vulkan: the idea behind Unreal Engine 5's
 Nanite, built with nothing but Vulkan and GLFW. 900 scanned statues, 15.9 billion
-triangles at full detail, drawn at 1920x1080 in 1.48 ms on an RX 9070 XT with soft
-shadows, bounce light, ambient occlusion and antialiasing. A million instances take 1.81 ms.
+triangles at full detail, drawn at 1920x1080 in 1.51 ms on an RX 9070 XT with soft
+shadows, bounce light, ambient occlusion and antialiasing. A million instances take 1.78 ms.
 
 ```
 colossus_build (C++20)                      colossus (Vulkan 1.3)
@@ -183,7 +183,7 @@ video](https://apollo-2006.github.io/colossus/colossus.mp4)**, and the
 
 ![tests](https://img.shields.io/badge/builder%20%2B%20streamer%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
 ![cracks](https://img.shields.io/badge/cracked%20edges-0-1f6f43?style=flat-square&labelColor=0b1220)
-![triangles](https://img.shields.io/badge/15.9B%20triangles-1.48%20ms-1f6f43?style=flat-square&labelColor=0b1220)
+![triangles](https://img.shields.io/badge/15.9B%20triangles-1.51%20ms-1f6f43?style=flat-square&labelColor=0b1220)
 ![webgpu](https://img.shields.io/badge/WebGPU%20port-live-1f6f43?style=flat-square&labelColor=0b1220)
 
 **[github.com/apollo-2006/colossus](https://github.com/apollo-2006/colossus)** · **[fly through it in your browser](https://apollo-2006.github.io/colossus/)** (WebGPU; needs a desktop GPU)
