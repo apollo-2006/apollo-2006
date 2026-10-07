@@ -175,10 +175,9 @@ indexes the original vertices, so a crack is exact, and every cut checked has no
 
 It takes real content too: the Smithsonian's George Washington scan streaming its own
 texture, skinned and animated foxes, and a photoscanned pine forest of 753 million
-triangles drawn in 5.6 ms. I wrote up how it was built, and where the proofs ran out, in
-**[Within a Pixel](https://abirdeol.tech/abir-deol-colossus-within-a-pixel.pdf)**,
-including a head-to-head with meshoptimizer's reference builder. **[A minute of it on
-video](https://apollo-2006.github.io/colossus/colossus.mp4)**, and the
+triangles drawn in 5.6 ms. The repo has a
+[head-to-head with meshoptimizer's reference builder](https://github.com/apollo-2006/colossus/tree/main/docs/compare),
+**[a minute of it on video](https://apollo-2006.github.io/colossus/colossus.mp4)**, and the
 [1.0 release](https://github.com/apollo-2006/colossus/releases/tag/v1.0).
 
 ![tests](https://img.shields.io/badge/builder%20%2B%20streamer%20tests-passing-1f6f43?style=flat-square&labelColor=0b1220)
@@ -278,17 +277,6 @@ LSM key value store: skip list memtable, write ahead log, SSTables and tombstone
 
 <div align="center"><img src="./assets/divider-v2.svg" width="100%" alt=""></div>
 
-### things I got wrong
-
-Four of the projects above had a bug that cost me real hours. I wrote each one up
-afterwards: the symptom, how I chased it, what was actually wrong, and what I changed
-about how I write that kind of code.
-
-- **[The block that was too small to free](https://abirdeol.tech/research/allocator)** &nbsp; an intrusive free list corrupting the block next door
-- **[The delete that did not delete](https://abirdeol.tech/research/tombstones)** &nbsp; a flush optimization that resurrected deleted keys
-- **[The order that was in two places](https://abirdeol.tech/research/order-pool)** &nbsp; a use after free that never crashed
-- **[A cluster that could not keep a leader](https://abirdeol.tech/research/election-timeouts)** &nbsp; when the runtime pauses longer than your failure detector waits
-
 ### smaller things
 
 - **[thermal_monitor](https://github.com/apollo-2006/thermal_monitor)** &nbsp; terminal daemon logging CPU load, package temperature and memory to SQLite twice a second
@@ -299,7 +287,6 @@ about how I write that kind of code.
 
 ### currently
 
-Working through machine learning from classical computer vision upward, and
-[writing down what I learn](https://abirdeol.tech/research) rather than collecting
-tutorials. Two time national MMA champion, 2020 to 2024. Looking for software
+Working through machine learning from classical computer vision upward, rather than
+collecting tutorials. Two time national MMA champion, 2020 to 2024. Looking for software
 engineering internships.
