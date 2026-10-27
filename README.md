@@ -24,7 +24,7 @@ somewhere to start.
 
 ## upstream
 
-**21 pull requests merged** into the Vulkan validation layers, SPIRV-Tools, glslang, whisper.cpp, llama.cpp and lemonade, and
+**28 pull requests merged** into the Vulkan validation layers, SPIRV-Tools, glslang, Mesa, wgpu, whisper.cpp, llama.cpp and lemonade, and
 driver bugs reported to Mesa that RADV developers have picked up. Most started as a bug I found, reported
 and then fixed myself, with sanitizers, Miri or the validation layers. The badges show each one's live state,
 and [abirdeol.tech/work](https://abirdeol.tech/work) has the reasoning behind each.
@@ -60,15 +60,64 @@ and [abirdeol.tech/work](https://abirdeol.tech/work) has the reasoning behind ea
 Mesa's GitLab with the exact test, the crash site and the VUID showing the application is valid; two
 already have fixes and became Vulkan CTS tickets.
 
+- **[mesa!44818](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44818)** &nbsp; merged: lavapipe ray tracing loaded the SSBO base pointer from an inactive lane. all 24 shaderRecord CTS tests go from fail to pass
 - **[mesa#16396](https://gitlab.freedesktop.org/mesa/mesa/-/issues/16396)** &nbsp; the shared Vulkan runtime lowered plain descriptor heap loads as acceleration structure loads, breaking lavapipe and RADV alike. bisected to one commit, with a fix ready
 - **[mesa#16378](https://gitlab.freedesktop.org/mesa/mesa/-/issues/16378)** &nbsp; RADV asserted on device destroy when two queues shared a family but differed in flags
 - **[mesa#16379](https://gitlab.freedesktop.org/mesa/mesa/-/issues/16379)** &nbsp; RADV segfaulted creating a result-status-only query pool without a video profile
 
 <details>
-<summary><b>19 more pull requests</b></summary>
+<summary><b>31 more pull requests</b></summary>
 <br>
 
 <table>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13430"><b>Vulkan-ValidationLayers&nbsp;#13430</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13430"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13430?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">memory imported from an fd on Linux was reported under the Win32 import VUID. the error now names the import struct that was actually used</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/glslang/pull/4467"><b>glslang&nbsp;#4467</b></a><br><a href="https://github.com/KhronosGroup/glslang/pull/4467"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/glslang/4467?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">reading a mesh shader output compiled fine and only failed later in spirv-val, far from the source. glslang now points at the line. fixes <a href="https://github.com/KhronosGroup/glslang/issues/4170">#4170</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6971"><b>SPIRV-Tools&nbsp;#6971</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6971"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Tools/6971?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top"><code>--fix-storage-class</code>, and so <code>--legalize-hlsl</code>, turned valid long-vector access chains invalid: one missing <code>OpTypeVectorIdEXT</code> case</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/gfx-rs/wgpu/pull/10497"><b>wgpu&nbsp;#10497</b></a><br><a href="https://github.com/gfx-rs/wgpu/pull/10497"><img src="https://img.shields.io/github/pulls/detail/state/gfx-rs/wgpu/10497?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">naga declared <code>LocalInvocationIndex</code> twice in mesh entry points, which SPIR-V forbids. CI missed it because spirv-val ran without a Vulkan target</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/gfx-rs/wgpu/pull/10496"><b>wgpu&nbsp;#10496</b></a><br><a href="https://github.com/gfx-rs/wgpu/pull/10496"><img src="https://img.shields.io/github/pulls/detail/state/gfx-rs/wgpu/10496?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">mesh draws in render bundles were never checked against the multiview mask, and the check itself was off by one</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6916"><b>SPIRV-Tools&nbsp;#6916</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6916"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Tools/6916?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">spirv-opt deleted members of structs used as type operands, so every glslang abort shader came out invalid at <code>-Os</code></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13276"><b>Vulkan-ValidationLayers&nbsp;#13276</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13276"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13276?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">GPU-AV scaled cooperative matrix strides by the component size instead of the pointed-to type. found by two failing tests on RADV</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13260"><b>Vulkan-ValidationLayers&nbsp;#13260</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13260"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13260?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">the new device-address mesh draw commands had no GPU-AV checks, and one reported the wrong error on packed commands</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13246"><b>Vulkan-ValidationLayers&nbsp;#13246</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13246"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13246?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">GPU-AV safe mode replaced a bad <code>SetMeshOutputsEXT</code> with fixed counts that could be out of range themselves. now it clamps to the shader's maximum</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13245"><b>Vulkan-ValidationLayers&nbsp;#13245</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13245"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13245?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">when memory is dedicated to one buffer or image, its export handle types are now checked the moment it is allocated, not at bind</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13241"><b>Vulkan-ValidationLayers&nbsp;#13241</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13241"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13241?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">best practices warned about depth/stencil resolve barriers written exactly as the spec asks. approved in two minutes</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/glslang/pull/4450"><b>glslang&nbsp;#4450</b></a><br><a href="https://github.com/KhronosGroup/glslang/pull/4450"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/glslang/4450?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top"><code>taskPayloadSharedEXT</code> on a struct definition compiled fine and sent no payload. now it is a compile error</td>
+</tr>
 <tr>
 <td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13209"><b>Vulkan-ValidationLayers&nbsp;#13209</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13209"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13209?style=flat-square&label=" alt="pull request state"></a></td>
 <td valign="top">eleven descriptor heap tests compared a sampled UNORM value with <code>==</code>, so lavapipe failed them for being one ulp off, which the spec allows</td>
