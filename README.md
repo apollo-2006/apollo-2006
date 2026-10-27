@@ -61,12 +61,14 @@ Mesa's GitLab with the exact test, the crash site and the VUID showing the appli
 already have fixes and became Vulkan CTS tickets.
 
 - **[mesa!44818](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/44818)** &nbsp; merged: lavapipe ray tracing loaded the SSBO base pointer from an inactive lane. all 24 shaderRecord CTS tests go from fail to pass
+- **[mesa!45313](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/45313)** &nbsp; a computed <code>gl_CullPrimitiveEXT</code> crashed lavapipe at draw. closes <a href="https://gitlab.freedesktop.org/mesa/mesa/-/issues/14376">#14376</a>
+- **[mesa!45314](https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/45314)** &nbsp; a valid mesh shader that never writes its primitive indices crashed lavapipe
 - **[mesa#16396](https://gitlab.freedesktop.org/mesa/mesa/-/issues/16396)** &nbsp; the shared Vulkan runtime lowered plain descriptor heap loads as acceleration structure loads, breaking lavapipe and RADV alike. bisected to one commit, with a fix ready
 - **[mesa#16378](https://gitlab.freedesktop.org/mesa/mesa/-/issues/16378)** &nbsp; RADV asserted on device destroy when two queues shared a family but differed in flags
 - **[mesa#16379](https://gitlab.freedesktop.org/mesa/mesa/-/issues/16379)** &nbsp; RADV segfaulted creating a result-status-only query pool without a video profile
 
 <details>
-<summary><b>31 more pull requests</b></summary>
+<summary><b>37 more pull requests</b></summary>
 <br>
 
 <table>
@@ -117,6 +119,34 @@ already have fixes and became Vulkan CTS tickets.
 <tr>
 <td valign="top"><a href="https://github.com/KhronosGroup/glslang/pull/4450"><b>glslang&nbsp;#4450</b></a><br><a href="https://github.com/KhronosGroup/glslang/pull/4450"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/glslang/4450?style=flat-square&label=" alt="pull request state"></a></td>
 <td valign="top"><code>taskPayloadSharedEXT</code> on a struct definition compiled fine and sent no payload. now it is a compile error</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13572"><b>Vulkan-ValidationLayers&nbsp;#13572</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13572"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13572?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">indirect copies into 3D images never checked their depth or block depth, a TODO in the layer. fixes <a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/issues/11332">#11332</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6996"><b>SPIRV-Tools&nbsp;#6996</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6996"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Tools/6996?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">dead code elimination deleted constants only used by <code>OpMemberDecorateIdEXT</code>, leaving the decoration pointing at nothing. six glslang descriptor heap shaders now validate</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6990"><b>SPIRV-Tools&nbsp;#6990</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6990"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Tools/6990?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">with 8-bit storage but no <code>Int8</code>, spirv-opt folded conversions into 8-bit constants the module is not allowed to declare</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/gfx-rs/wgpu/pull/10692"><b>wgpu&nbsp;#10692</b></a><br><a href="https://github.com/gfx-rs/wgpu/pull/10692"><img src="https://img.shields.io/github/pulls/detail/state/gfx-rs/wgpu/10692?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">the mesh shader example panicked on AMD's Windows driver with native workgroup zero init. mesh and task stages use the polyfill there. fixes <a href="https://github.com/gfx-rs/wgpu/issues/9719">#9719</a></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Cross/pull/2720"><b>SPIRV-Cross&nbsp;#2720</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Cross/pull/2720"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Cross/2720?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">HLSL compat mode removed <code>PointSize</code> from mesh outputs but still emitted its writes, so the output did not compile</td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6982"><b>SPIRV-Tools&nbsp;#6982</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Tools/pull/6982"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Tools/6982?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">the #6971 access chain bug again, for <code>OpTypeCooperativeMatrixNV</code></td>
+</tr>
+<tr>
+<td valign="top"><a href="https://github.com/KhronosGroup/SPIRV-Cross/pull/2708"><b>SPIRV-Cross&nbsp;#2708</b></a><br><a href="https://github.com/KhronosGroup/SPIRV-Cross/pull/2708"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/SPIRV-Cross/2708?style=flat-square&label=" alt="pull request state"></a></td>
+<td valign="top">a struct pointing to itself through a <code>buffer_reference</code> sent SPIRV-Cross into two infinite recursions</td>
 </tr>
 <tr>
 <td valign="top"><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13209"><b>Vulkan-ValidationLayers&nbsp;#13209</b></a><br><a href="https://github.com/KhronosGroup/Vulkan-ValidationLayers/pull/13209"><img src="https://img.shields.io/github/pulls/detail/state/KhronosGroup/Vulkan-ValidationLayers/13209?style=flat-square&label=" alt="pull request state"></a></td>
@@ -177,10 +207,6 @@ already have fixes and became Vulkan CTS tickets.
 <tr>
 <td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4047"><b>whisper.cpp&nbsp;#4047</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4047"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4047?style=flat-square&label=" alt="pull request state"></a></td>
 <td valign="top">the CI leg that would have caught #4031 before it shipped</td>
-</tr>
-<tr>
-<td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4029"><b>whisper.cpp&nbsp;#4029</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4029"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4029?style=flat-square&label=" alt="pull request state"></a></td>
-<td valign="top">prebuilt macOS binaries, including a <code>lipo</code> fused universal archive that picks its CPU backend at load time</td>
 </tr>
 <tr>
 <td valign="top"><a href="https://github.com/ggml-org/whisper.cpp/pull/4019"><b>whisper.cpp&nbsp;#4019</b></a><br><a href="https://github.com/ggml-org/whisper.cpp/pull/4019"><img src="https://img.shields.io/github/pulls/detail/state/ggml-org/whisper.cpp/4019?style=flat-square&label=" alt="pull request state"></a></td>
